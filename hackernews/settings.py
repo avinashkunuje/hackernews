@@ -1,4 +1,7 @@
 # Django settings for hackernews project.
+import os
+BASE_PATH = os.path.realpath(__file__))
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -107,6 +110,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'hackernews.urls'
 
 TEMPLATE_DIRS = (
+
+    os.path.join(BASE_PATH,'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -123,6 +128,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'stories',
+    'stories.templatetags.story_extras',
+    'story_extras',
 )
 
 # A sample logging configuration. The only tangible logging

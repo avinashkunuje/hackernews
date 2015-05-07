@@ -19,7 +19,8 @@ def top_stories(top=180,consider=1000):
 
 def index(request):
 	stories = top_stories(top=30) 
-	# template =loader.get_template('index.html')
+	# template =loader.get_template('stories/index.html')
 	# context=Context({'stories':stories})
 	# response=template.render(context)
-	return render_to_response('index.html',{'stories':stories})
+	return render_to_response('stories/index.html',{'stories':stories})
+	#return HttpResponse(response)

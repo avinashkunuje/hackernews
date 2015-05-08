@@ -1,5 +1,5 @@
 import datetime
-from django.template import loader,Context
+from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 from django.utils.timezone import utc
@@ -20,7 +20,9 @@ def top_stories(top=180,consider=1000):
 def index(request):
 	stories = top_stories(top=30) 
 	# template =loader.get_template('stories/index.html')
-	# context=Context({'stories':stories})
+	context=RequestContext(request, {
+		'stories':stories
+		})
 	# response=template.render(context)
-	return render_to_response('stories/index.html',{'stories':stories})
+	return render_to_response('stories/index.html',context)
 	#return HttpResponse(response)

@@ -1,9 +1,18 @@
 <html>
 <head>
 	<title>Avinash Kunuje</title>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/css/custom.css">
 </head>
-{% block content %}
-Hacker news from base.html
-{% endblock content%}
+<body>
+	<div id="content">
+	 	<div id="header">
+	 		<div id="site-logo">Avi</div>
+	 		<div id="site-title"><h1>Avinash Kunuje</h1></div>
+	 	</div>
+	
+		{% block content %}
+		
+		{% endblock content%}
+	</div>
 </body>
 </html>

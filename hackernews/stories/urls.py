@@ -4,5 +4,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
 	url(r'^$','stories.views.index'),
-   
+   	url(r'^story/$','stories.views.story'),
+   	url(r'^login/$','django.contrib.auth.views.login',{'template_name':'auth/login.html'})
 ]

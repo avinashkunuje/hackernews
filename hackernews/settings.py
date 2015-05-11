@@ -8,6 +8,10 @@ TEMPLATE_DEBUG = DEBUG
 
 LOGIN_URL='/login/'
 
+LOGIN_REDIRECT_URL = '/story/'
+
+
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )

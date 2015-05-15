@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 {% load story_extras %}
 {% load staticfiles %}
+{% load url from future %}
+
+{% block head %}
+			<script src="{{ STATIC_URL }}static/js/jquery.min.js"></script>
+			<script src="{{ STATIC_URL }}static/js/vote.js"></script>
+{% endblock head %}
 
 {% block content %}
 <ol>
 	{% for story in stories %}
 	<li>
 		<p class="story-title">
-			<a href="{{story.url}}">{{story.title}}</a> <span class="domain">({{story.domain}})</span>
+		{% if user.is_authenticated and story not in liked_stories %}
+
+		<a href="{%url 'vote'%}" id="story-vote-{{ story.id }}" class="vote"><img src="{{ STATIC_URL }}static/images/arrow.gif"></a>
+		
+		<a href="{{story.url}}" id="story-title-{{ story.id }}>{{story.title}}</a><span class="domain">({{story.domain}})</span>	
+		{% else %}
+
+		<a href="{{ story.url }}" style="margin-left:15px;"> {{ story.title }} </a> <span class="domain">({{story.domain}})</span>
+
+		{% endif %}
+		
 		</p>
 
 		<p class='story-info'>
